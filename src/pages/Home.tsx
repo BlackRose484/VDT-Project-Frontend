@@ -30,19 +30,19 @@ const Home = () => {
       {/* Background */}
 
       <div className="fixed inset-0 -z-10 h-screen">
-        <video
+        {/* <video
           src="./cloud_animation_2.mp4"
           loop
           autoPlay
           muted
           className="w-full h-full object-cover"
-        ></video>
+        ></video> */}
       </div>
 
       <Hero nums_booking_changed={user?.nums_booking_changed || 0}>
         <SearchBar />
       </Hero>
-      
+
       <div className="relative top-[-20px] z-50 md:sticky">
         <SearchBarSimple />
       </div>
@@ -51,7 +51,7 @@ const Home = () => {
         <div id="news"></div>
         <LatestNews />
       </div>
-      
+
       <div id="why-choose-us"></div>
       <WhyChooseUs />
 

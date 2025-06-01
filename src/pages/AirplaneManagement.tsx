@@ -18,20 +18,18 @@ const AirplaneManagement: React.FC = () => {
     }
   }
 
-  console.log(aircraft_list);
-
   return (
     <div className="flex flex-col bg-[#F6FBFF] rounded-[20px] my-5">
       {/* Background */}
 
       <div className="fixed inset-0 -z-10 h-screen">
-        <video
+        {/* <video
           src="./cloud_animation_2.mp4"
           loop
           autoPlay
           muted
           className="w-full h-full object-cover"
-        ></video>
+        ></video> */}
       </div>
 
       <div className="relative flex justify-center ">

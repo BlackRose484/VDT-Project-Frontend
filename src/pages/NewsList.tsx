@@ -60,13 +60,13 @@ const NewsList: React.FC = () => {
     <>
       {isLoading ? <Loading /> : null}
       <div className="fixed inset-0 -z-10 h-screen">
-        <video
+        {/* <video
           src="./cloud_animation_2.mp4"
           loop
           autoPlay
           muted
           className="w-full h-full object-cover"
-        ></video>
+        ></video> */}
       </div>
       <div className="flex flex-col gap-12 p-4 md:p-8 lg:p-12 bg-slate-100">
         <div className="flex justify-center space-x-4">
