@@ -241,6 +241,12 @@ const Search = () => {
                 className={index > 0 ? "mt-24 max-md:mt-10" : ""}
               >
                 <SearchResultCard
+                  ori_code={""}
+                  ori_city={""}
+                  des_code={""}
+                  des_city={""}
+                  nums_busi_book={0}
+                  nums_eco_book={0}
                   {...flight}
                   onClick={() => {
                     if (isReturn) {

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { formatDate, formatTime } from "../utils/utils";
 import AdjustFlight from "./AdjustFlight";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // Define the props for the FlightCard component
 interface FlightCardProps {
