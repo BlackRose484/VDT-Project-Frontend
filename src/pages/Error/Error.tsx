@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
+import Header from "../../components/base/Header";
+import Footer from "../../components/base/Footer";
 
 export function Error({ message }: { message: string }) {
   const navigate = useNavigate();

@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import { getAirports } from "../apis/flight.api";
-import { Airport } from "../types/flight.type";
+import { getAirports } from "@/apis/flight.api";
+import { Airport } from "@/types/flight.type";
 
 export const useGetAirports = () => {
   const { data: airport_list } = useQuery({

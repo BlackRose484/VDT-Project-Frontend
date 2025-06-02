@@ -1,26 +1,26 @@
 import { useRoutes } from "react-router-dom";
-import { PATH } from "./constants/path";
-import LoginPage from "./pages/Login";
-import RegisterPage from "./pages/Register";
-import Layout from "./layouts/Layout";
-import HomePage from "./pages/Home";
-import PrivateRoute from "./guards/PrivateRoute";
-import AdminRoute from "./guards/AdminRoute";
-import RejectedRoute from "./guards/RejectedRoute";
-import SearchPage from "./pages/Search";
-import Booking from "./pages/Booking";
-import MyBooking from "./pages/MyBooking";
-import ConfirmCancelBooking from "./pages/ConfirmCancelBooking";
-import AirplaneManagement from "./pages/AirplaneManagement";
-import ViewFlight from "./pages/ViewFlight";
-import EditNews from "./pages/EditNews";
-import NewsDetails from "./pages/NewsDetails";
-import NewsList from "./pages/NewsList";
-import AddFlight from "./pages/AddFlight";
-import UserProfile from "./pages/UserProfile";
-import AddAirplane from "./pages/AddAirplane";
-import Chart from "./pages/Chart";
-import ViewFullTicket from "./pages/ViewFullTicket";
+import { PATH } from "@/constants/path";
+import LoginPage from "@/pages/auth/Login";
+import RegisterPage from "@/pages/auth/Register";
+import Layout from "@/layouts/Layout";
+import HomePage from "@/pages/Home";
+import PrivateRoute from "@/guards/PrivateRoute";
+import AdminRoute from "@/guards/AdminRoute";
+import RejectedRoute from "@/guards/RejectedRoute";
+import SearchPage from "@/pages/Search";
+import Booking from "@/pages/customer/Booking";
+import MyBooking from "@/pages/customer/MyBooking";
+import ConfirmCancelBooking from "@/pages/customer/ConfirmCancelBooking";
+import AirplaneManagement from "@/pages/admin/airplane/AirplaneManagement";
+import ViewFlight from "@/pages/admin/flight/ViewFlight";
+import EditNews from "@/pages/admin/blogs/EditNews";
+import NewsDetails from "@/pages/admin/blogs/NewsDetails";
+import NewsList from "@/pages/admin/blogs/NewsList";
+import AddFlight from "@/pages/admin/flight/AddFlight";
+import UserProfile from "@/pages/customer/UserProfile";
+import AddAirplane from "@/pages/admin/airplane/AddAirplane";
+import Chart from "@/pages/admin/chart/Chart";
+import ViewFullTicket from "@/pages/admin/flight/ViewFullTicket";
 
 export default function createRoutes() {
   // eslint-disable-next-line react-hooks/rules-of-hooks

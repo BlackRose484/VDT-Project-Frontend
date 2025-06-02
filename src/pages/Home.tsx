@@ -1,15 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
-import { getPopularPlaces } from "../apis/flight.api";
-import Hero from "../components/Hero";
-import LatestNews from "../components/LatestNews";
-import SearchBar from "../components/SearchBar";
-import SearchBarSimple from "../components/SearchBarSimple";
-import WhyChooseUs from "../components/WhyChooseUs";
-import PopularLocationCard from "../components/PopularLocationCard";
-import { PopularPlace } from "../types/flight.type";
-import { fetchCurrentUser } from "../apis/user.api";
+import { getPopularPlaces } from "@/apis/flight.api";
+import Hero from "@/components/base/Hero";
+import LatestNews from "@/components/utils/blogs/LatestNews";
+import SearchBar from "@/components/utils/search/SearchBar";
+import SearchBarSimple from "@/components/utils/search/SearchBarSimple";
+import WhyChooseUs from "@/components/base/WhyChooseUs";
+import PopularLocationCard from "@/components/PopularLocationCard";
+import { PopularPlace } from "@/types/flight.type";
+import { fetchCurrentUser } from "@/apis/user.api";
 import { useContext } from "react";
-import { AppContext } from "../context/app.context";
+import { AppContext } from "@/context/app.context";
 
 const Home = () => {
   const { data: popularPlaces = { data: [] } } = useQuery({

@@ -1,13 +1,13 @@
-import SearchResultCard from "../components/SearchResultCard";
+import SearchResultCard from "@/components/utils/search/SearchResultCard";
 import { useQuery } from "@tanstack/react-query";
-import { getFlights } from "../apis/flight.api";
-import { useQueryForm } from "../hooks/useQueryForm";
-import { Flight } from "../types/flight.type";
+import { getFlights } from "@/apis/flight.api";
+import { useQueryForm } from "@/hooks/useQueryForm";
+import { Flight } from "@/types/flight.type";
 import { useState } from "react";
-import { useGetAirports } from "../hooks/useGetAirports";
+import { useGetAirports } from "@/hooks/useGetAirports";
 import { useNavigate } from "react-router-dom";
-import SearchedFlightInfo from "../components/SearchedFlightInfo";
-import SearchBarSimple from "../components/SearchBarSimple";
+import SearchedFlightInfo from "@/components/utils/search/SearchedFlightInfo";
+import SearchBarSimple from "@/components/utils/search/SearchBarSimple";
 
 type SortType = {
   base_price?: "asc" | "desc";

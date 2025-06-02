@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import { getJWTFromLocalStorage, getRoleFromLocalStorage } from "../utils/auth";
+import { getJWTFromLocalStorage, getRoleFromLocalStorage } from "@/utils/auth";
 interface AppContextInterface {
   isAuthenticated: boolean;
   setIsAuthenticated: React.Dispatch<React.SetStateAction<boolean>>;

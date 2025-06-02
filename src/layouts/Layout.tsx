@@ -1,5 +1,5 @@
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import Header from "@/components/base/Header";
+import Footer from "@/components/base/Footer";
 
 interface Props {
   children: React.ReactNode;

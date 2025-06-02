@@ -17,9 +17,6 @@ export function formatDate(dateTime: string | Date): string {
   if (typeof dateTime === "string") {
     dateTime = new Date(dateTime);
   }
-  if (!dateTime) {
-    return "";
-  }
   return (
     dateTime.getDate() +
     "/" +
@@ -32,9 +29,6 @@ export function formatDate(dateTime: string | Date): string {
 export function formatTime(dateTime: string | Date): string {
   if (typeof dateTime === "string") {
     dateTime = new Date(dateTime);
-  }
-  if (!dateTime) {
-    return "";
   }
   return (
     dateTime.getHours().toString().padStart(2, "0") +

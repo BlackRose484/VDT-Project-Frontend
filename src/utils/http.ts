@@ -17,7 +17,7 @@ class Http {
     this.access_token = getJWTFromLocalStorage();
     this.role = getRoleFromLocalStorage();
     this.instance = axios.create({
-      baseURL: "https://vdt-project-backend.onrender.com",
+      baseURL: "https://vdt-project-backend.onrender.com", // "http://localhost:7000",
       timeout: 10000,
       headers: {
         "Content-Type": "application/json",
