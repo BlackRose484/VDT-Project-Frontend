@@ -116,7 +116,24 @@ const AddFlight: React.FC = () => {
     (name: keyof AddFlightProps) =>
     (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
       setError((prev) => ({ ...prev, [name]: "" }));
-      setNewFlight((prev) => ({ ...prev, [name]: e.target.value }));
+      // Nếu là input datetime-local thì giữ nguyên chuỗi, không chuyển sang Date
+      if (
+        (name === "scheduled_departure" || name === "scheduled_arrival") &&
+        typeof e.target.value === "string"
+      ) {
+        setNewFlight((prev) => ({ ...prev, [name]: e.target.value }));
+      } else if (
+        name === "nums_busi_seat_avail" ||
+        name === "nums_eco_seat_avail" ||
+        name === "base_price"
+      ) {
+        setNewFlight((prev) => ({
+          ...prev,
+          [name]: Number(e.target.value),
+        }));
+      } else {
+        setNewFlight((prev) => ({ ...prev, [name]: e.target.value }));
+      }
     };
 
   const handleChangeSuggestions =

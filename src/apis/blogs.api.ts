@@ -28,3 +28,7 @@ export const updateBlog = async (id: string, data: FormData) => {
     },
   });
 };
+
+export const deleteBlog = async (id: string) => {
+  return http.delete<string>(`/blogs/delete/${id}`);
+};

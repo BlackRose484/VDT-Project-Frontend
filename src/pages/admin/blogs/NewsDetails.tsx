@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import { getBlogById } from "@/apis/blogs.api";
+import { deleteBlog, getBlogById } from "@/apis/blogs.api";
 import { SRC } from "@/constants/src";
 import { AppContext } from "@/context/app.context";
 
@@ -47,6 +47,27 @@ const NewsDetails: React.FC = () => {
         <div dangerouslySetInnerHTML={{ __html: blog?.data.content || "" }} />
         {isAdmin && (
           <div className="flex md:justify-end justify-center">
+            <button
+              className="bg-red-300 w-[200px] md:max-w-[200px] py-3 px-2 rounded-[20px] hover:bg-red-400"
+              onClick={() => {
+                if (
+                  window.confirm("Are you sure you want to delete this blog?")
+                ) {
+                  // Call delete API here
+                  deleteBlog(param.id as string)
+                    .then(() => {
+                      alert("Blog deleted successfully");
+                    })
+                    .catch((error) => {
+                      console.error("Error deleting blog:", error);
+                      alert("Failed to delete blog");
+                    });
+                  navigate("/view-news");
+                }
+              }}
+            >
+              Delete Blog
+            </button>
             <button
               className="bg-blue-300 w-[200px] md:max-w-[200px] py-3 px-2 rounded-[20px] hover:bg-blue-400"
               onClick={handleEdit}

@@ -56,6 +56,22 @@ const NewsList: React.FC = () => {
     }
   };
 
+  //Search functionality can be added here if needed
+  // const handleSearch = (query: string) => {
+  //   const filteredBlogs = blogs_data.data.filter((blog) =>
+  //     blog.title.toLowerCase().includes(query.toLowerCase())
+  //   );
+  //   setNewsOnPage(filteredBlogs.slice(0, LIMIT_ITEMS));
+  // };
+
+  // Search function
+  const handleSearch = (query: string) => {
+    const filteredBlogs = blogs_data.data.filter((blog) =>
+      blog.title.toLowerCase().includes(query.toLowerCase())
+    );
+    setNewsOnPage(filteredBlogs.slice(0, LIMIT_ITEMS));
+  };
+
   return (
     <>
       {isLoading ? <Loading /> : null}
@@ -74,6 +90,13 @@ const NewsList: React.FC = () => {
             type="text"
             placeholder="🔎 Search a news"
             className="border border-black border-opacity-20 bg-gray-200 rounded-lg px-4 py-2 shadow-lg w-full max-w-md"
+            onChange={(e) => handleSearch(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                handleSearch((e.target as HTMLInputElement).value);
+              }
+            }}
+            autoFocus
           />
           <NavLink
             to={PATH.admin.upload_news}
