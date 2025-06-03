@@ -14,6 +14,8 @@ export const PATH = {
     chart: "/chart",
     add_airplane: "/add-airplane",
     view_full_tickets: "/view-full-tickets/:flight_id",
+    user_management: "/user-management",
+    view_user_info: "/view-user-info/:userId",
   },
   user: {
     booking: "/booking",

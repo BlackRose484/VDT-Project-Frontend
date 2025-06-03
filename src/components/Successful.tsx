@@ -30,7 +30,7 @@ const Successful = ({
       <div className="flex items-center justify-center w-[35%] h-[35%] [#F6FBFF] rounded-[30px] shadow-lg bg-[#F6FBFF]">
         <div className="text-center">
           <img
-            src="./success.png"
+            src="../success.png"
             alt="Loading animation"
             className="w-[100px] h-[100px] md:w-[140px] md:h-[140px] mx-auto"
           />

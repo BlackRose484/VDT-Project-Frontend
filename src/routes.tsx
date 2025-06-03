@@ -21,6 +21,8 @@ import UserProfile from "@/pages/customer/UserProfile";
 import AddAirplane from "@/pages/admin/airplane/AddAirplane";
 import Chart from "@/pages/admin/chart/Chart";
 import ViewFullTicket from "@/pages/admin/flight/ViewFullTicket";
+import UserManagement from "@/pages/admin/rbac/UserManagement";
+import ViewUserInformation from "./pages/admin/rbac/ViewUserInformation";
 
 export default function createRoutes() {
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -136,6 +138,22 @@ export default function createRoutes() {
           element: (
             <Layout>
               <ViewFullTicket />
+            </Layout>
+          ),
+        },
+        {
+          path: PATH.admin.user_management,
+          element: (
+            <Layout>
+              <UserManagement />
+            </Layout>
+          ),
+        },
+        {
+          path: PATH.admin.view_user_info,
+          element: (
+            <Layout>
+              <ViewUserInformation />
             </Layout>
           ),
         },
