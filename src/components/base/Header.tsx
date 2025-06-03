@@ -10,7 +10,7 @@ import { fetchCurrentUser } from "@/apis/user.api";
 // Header component displays the navigation bar with dynamic links based on the user's authentication status and role (Admin or User).
 const Header = () => {
   const location = useLocation();
-  const { isAuthenticated, isAdmin, setIsAuthenticated } =
+  const { isAuthenticated, isAdmin, isBoss, setIsAuthenticated } =
     useContext(AppContext);
 
   // Fetch current user data when authenticated using React Query.
@@ -115,16 +115,18 @@ const Header = () => {
                 >
                   My Aircrafts
                 </NavLink>
-                <NavLink
-                  className={
-                    location.pathname === PATH.admin.user_management
-                      ? "flex items-center text-white px-2 font-semibold border-b-2 border-white-500"
-                      : "flex items-center text-white px-2 font-semibold border-b-2 border-transparent"
-                  }
-                  to={PATH.admin.user_management}
-                >
-                  User Management
-                </NavLink>
+                {isBoss && (
+                  <NavLink
+                    className={
+                      location.pathname === PATH.admin.user_management
+                        ? "flex items-center text-white px-2 font-semibold border-b-2 border-white-500"
+                        : "flex items-center text-white px-2 font-semibold border-b-2 border-transparent"
+                    }
+                    to={PATH.admin.user_management}
+                  >
+                    User Management
+                  </NavLink>
+                )}
                 <NavLink
                   className={
                     location.pathname === PATH.admin.view_news

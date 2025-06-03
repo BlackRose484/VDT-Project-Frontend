@@ -9,6 +9,7 @@ import { PATH } from "@/constants/path";
 import { formatCurrency } from "@/utils/utils";
 import Loading from "@/components/Loading";
 import Successful from "@/components/Successful";
+import { useNavigate } from "react-router-dom";
 
 const Booking = () => {
   const {
@@ -23,7 +24,7 @@ const Booking = () => {
   const [discount, setDiscount] = useState<string>("");
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccessful, setIsSuccessful] = useState(false);
-
+  const navigate = useNavigate();
   const [errors, setErrors] = useState<{
     [key: number]: { [key: string]: string };
   }>({});
@@ -195,6 +196,10 @@ const Booking = () => {
     } catch (error) {
       setIsLoading(false);
       console.log(error);
+      window.alert(
+        "An error occurred while making the booking. Please try again later."
+      );
+      navigate(PATH.user.mybooking);
     }
   };
 

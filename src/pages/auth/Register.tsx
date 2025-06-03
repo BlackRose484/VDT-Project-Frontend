@@ -24,7 +24,7 @@ const RegisterPage: React.FC = () => {
   });
 
   const navigate = useNavigate();
-  const { setIsAuthenticated, setIsAdmin } = useContext(AppContext);
+  const { setIsAuthenticated, setIsAdmin, setIsBoss } = useContext(AppContext);
 
   const registerMutation = useMutation({
     mutationFn: (body: { email: string; password: string }) =>
@@ -37,7 +37,8 @@ const RegisterPage: React.FC = () => {
         console.log("Success Login");
         setIsAuthenticated(true);
         const role = getRoleFromLocalStorage();
-        setIsAdmin(role === "Admin");
+        setIsAdmin(role === "Admin" || role === "Boss");
+        setIsBoss(role === "Boss");
         navigate("/");
       },
       onError: (error) => {

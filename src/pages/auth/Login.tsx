@@ -29,7 +29,7 @@ const LoginPage: React.FC = () => {
   });
 
   const navigate = useNavigate();
-  const { setIsAuthenticated, setIsAdmin } = useContext(AppContext);
+  const { setIsAuthenticated, setIsAdmin, setIsBoss } = useContext(AppContext);
 
   const onSubmit = handleSubmit((data) => {
     loginMutaion.mutate(data, {
@@ -37,7 +37,8 @@ const LoginPage: React.FC = () => {
         console.log("Success Login");
         setIsAuthenticated(true);
         const role = getRoleFromLocalStorage();
-        setIsAdmin(role === "Admin");
+        setIsAdmin(role === "Admin" || role === "Boss");
+        setIsBoss(role === "Boss");
         navigate("/");
       },
       onError: (error) => {
