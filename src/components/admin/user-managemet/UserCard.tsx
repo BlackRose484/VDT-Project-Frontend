@@ -16,9 +16,7 @@ const UserCard = (user: UserCardProps) => {
       <div className="flex items-center gap-4 sm:gap-6">
         <img
           src={
-            user.role === "Admin"
-              ? "/public/admin-avatar.png"
-              : "/public/user-avatar.png"
+            user.role === "Admin" ? "../admin-avatar.png" : "../user-avatar.png"
           }
           alt={user.fullname}
           className="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-blue-200 object-cover flex-shrink-0"
