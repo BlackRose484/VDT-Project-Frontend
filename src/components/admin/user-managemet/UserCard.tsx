@@ -32,7 +32,7 @@ const UserCard = (user: UserCardProps) => {
             {user.fullname || "Anonymous"}
           </h3>
           <p className="text-blue-600 font-medium truncate">{user.email}</p>
-          <h3 className="inline-block mt-1 px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-semibold break-words truncate">
+          <h3 className="xl:inline-block mt-1 px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-semibold truncate">
             {user.role}
           </h3>
         </div>

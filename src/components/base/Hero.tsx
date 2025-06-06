@@ -17,7 +17,7 @@ const Hero = ({ children, nums_booking_changed }: HeroProps) => {
   };
 
   return (
-    <section className="flex flex-col items-center justify-center overflow-hidden relative px-6 py-20 w-full bg-slate-10 min-h-[400px] max-md:px-5 max-md:text-center">
+    <section className="flex flex-col items-center justify-center overflow-hidden relative px-6 py-20 w-full bg-slate-10 min-h-[400px] max-lg:px-5 max-lg:text-center">
       {/* Background Image */}
       <img
         loading="lazy"
@@ -27,11 +27,11 @@ const Hero = ({ children, nums_booking_changed }: HeroProps) => {
       />
 
       {/* Children (Flight Details) */}
-      <div className="flex flex-col md:flex-row w-full gap-[30px] px-[20px]">
+      <div className="flex flex-col lg:flex-row w-full gap-[30px] px-[20px]">
         {/* Hero Content */}
-        <div className="flex flex-col items-ce relative mb-16 text-center space-y-6 max-w-4xl px-[40px]">
+        <div className="flex flex-col items-ce relative mb-16 text-center space-y-6 max-w-4xl lg:px-[40px]">
           {/* Main Hero Title */}
-          <h1 className="text-slate-700 text-5xl font-bold max-md:text-4xl text-left">
+          <h1 className="text-slate-700 text-5xl font-bold max-lg:text-4xl text-left">
             Wings to Your World
           </h1>
 

@@ -60,41 +60,44 @@ const RegisterPage: React.FC = () => {
   });
 
   return (
-    <main className="bg-white flex min-w-[320px] items-start overflow-hidden justify-start flex-wrap mx-24 md:p-[100px_20px] scale-[0.85]">
-      <div className="rounded-[14px] shadow-lg flex min-w-[240px] w-full justify-center flex-wrap flex-1 basis-0 items-stretch md:max-w-full">
-        <section className="rounded-[14px_0_0_14px] flex min-w-[320px] flex-col overflow-hidden flex-1 basis-[60px] p-[217px_0_132px] relative md:max-w-full md:p-[100px_0]">
+    <main className="bg-white flex flex-col lg:flex-row min-w-[320px] items-start justify-start mx-4 lg:mx-24 p-4 lg:p-[100px_20px] scale-[1] lg:scale-[0.8]">
+      <div className="rounded-[14px] shadow-lg flex flex-col lg:flex-row w-full justify-center items-stretch">
+        <section className="rounded-b-[14px] lg:rounded-[14px_0_0_14px] flex flex-col w-full lg:w-1/2 relative p-10 lg:p-[217px_0_132px] overflow-hidden">
           <img
-            className="w-full h-full absolute top-0 left-0 z-[1]"
+            className="w-full h-full absolute top-0 left-0 z-0 object-cover"
             src="./background.png"
             alt="Background"
           />
-          <div className="text-black font-bold font-serif px-[17px] pl-[73px] z-[1] mt-20">
-            <h2 className="text-[90px] tracking-[2.88px] self-end md:max-w-full md:text-[40px] pl-[80px]">
+          <div className="text-black font-bold font-serif z-10 px-4 lg:px-[73px] mt-10 lg:mt-20">
+            <h2 className="text-[36px] lg:text-[90px] tracking-wide lg:tracking-[2.88px]">
               Elevate Your Journey
             </h2>
-            <p className="text-[100px] tracking-[3.6px] self-start mt-[105px] md:mt-[40px] md:text-[40px]">
+            <p className="text-[36px] lg:text-[100px] mt-10 lg:mt-[105px]">
               Discover the
             </p>
           </div>
-          <p className="text-white font-serif text-[128px] tracking-[7.68px] self-start mt-[38px] ml-[11px] z-[1]">
+          <p className="text-white font-serif text-[40px] lg:text-[128px] tracking-wide lg:tracking-[7.68px] mt-6 ml-2 z-10">
             World
           </p>
         </section>
-        <section className="rounded-[0_14px_14px_0] bg-[rgba(97,168,250,0.2)] flex min-w-[400px] min-h-[814px] flex-col overflow-hidden tracking-[0.96px] justify-between flex-1 basis-0 text-[16px] md:max-w-full md:p-[0_20px]">
+
+        <section className="rounded-t-[14px] lg:rounded-[0_14px_14px_0] bg-[rgba(97,168,250,0.2)] flex flex-col w-full lg:w-1/2 min-h-[600px] lg:min-h-[814px] tracking-[0.96px] justify-between text-[16px] p-4 lg:p-[0_20px]">
           <img
             loading="lazy"
             src="https://cdn.builder.io/api/v1/image/assets/f8ff8e6c001546d0b8b7d8599eb812e4/e1788ec81ceaeebbbe73440a826b9431217fe1ebd68df09e1c2b49c49251d318?apiKey=f8ff8e6c001546d0b8b7d8599eb812e4&"
             alt="Company Logo"
-            className="aspect-[3.1] object-contain object-center w-[300px] max-w-[300px] mt-10"
+            className="aspect-[3.1] object-contain object-center w-[200px] lg:w-[300px] max-w-[300px] mt-6 lg:mt-10 self-center"
           />
-          <div className="text-[#223a60] font-bold leading-[40px] mt-[50px] md:max-w-full md:mt-[40px]">
-            <h1 className="text-[48px] text-[#223a60]">Create Account</h1>
-            <p className="font-normal text-[20px] text-[#223a60]">
+          <div className="text-[#223a60] font-bold leading-[40px] mt-6 lg:mt-[40px] text-center lg:text-left">
+            <h1 className="text-[32px] lg:text-[48px] text-[#223a60]">
+              Create Account
+            </h1>
+            <p className="font-normal text-[18px] lg:text-[20px] text-[#223a60]">
               Welcome! Ready For A New Flight!
             </p>
           </div>
-          <form onSubmit={onSubmit} className="mb-10 flex flex-col">
-            <div className="mb-8">
+          <form onSubmit={onSubmit} className="flex flex-col mt-6 lg:mt-0">
+            <div className="mb-6 lg:mb-10">
               <InputField
                 name="email"
                 type="text"
@@ -105,7 +108,7 @@ const RegisterPage: React.FC = () => {
                 error={errors.email?.message}
               />
             </div>
-            <div className="mb-8">
+            <div className="mb-6 lg:mb-10">
               <InputField
                 name="password"
                 type="password"
@@ -127,19 +130,19 @@ const RegisterPage: React.FC = () => {
             />
             <button
               type="submit"
-              className="w-1/3 mx-auto mb-3 rounded-[14px] bg-[#223a60] shadow-lg min-h-[44px] gap-[10px] text-white font-medium text-center leading-[40px] px-5 mt-[40px] lg:whitespace-nowrap lg:mt-[50px]"
+              className="w-2/3 lg:w-1/3 mx-auto rounded-[14px] bg-[#223a60] shadow-lg mt-6 lg:mt-[30px] min-h-[44px] gap-[10px] text-white font-medium text-center leading-[40px] px-5"
             >
               Register
             </button>
-            <Link to="/login" className="text-center">
-              <p className="text-[#223a60] font-normal leading-[40px] self-stretch flex-1 basis-[40px] my-auto text-ellipsis">
-                Already have an account?
-              </p>
-              <p className="self-stretch text-[#0066ff] font-medium flex-1 my-auto px-[20px] text-ellipsis">
-                Login
-              </p>
-            </Link>
           </form>
+          <div className="flex flex-col w-full mb-6 lg:mb-10 items-center gap-2.5 text-center px-2.5 sm:mt-[30px] sm:px-5">
+            <p className="text-[#223a60] font-normal leading-[24px]">
+              Already have an account?
+            </p>
+            <Link to="/login" className="text-[#0066ff] font-medium px-5">
+              Login
+            </Link>
+          </div>
         </section>
       </div>
     </main>
