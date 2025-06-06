@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import { formatDate, formatTime } from "@/utils/utils";
 import AdjustFlight from "./AdjustFlight";
 import { Link } from "react-router-dom";
+import Confirm from "./Confirm";
+import { deleteFlight } from "@/apis/admin.api";
+import { toast } from "react-toastify";
+import { useQueryClient } from "@tanstack/react-query";
 
 // Define the props for the FlightCard component
 interface FlightCardProps {
@@ -41,6 +45,7 @@ const FlightCard: React.FC<FlightCardProps> = ({
 
   // State to toggle the visibility of the adjust flight modal
   const [isAdjust, setIsAdjust] = useState(false);
+  const [isConfirm, setConfirm] = useState(false);
   const data = {
     aircraftId,
     flightId,
@@ -59,6 +64,21 @@ const FlightCard: React.FC<FlightCardProps> = ({
   // Handle closing the adjust flight modal
   const handleClose = () => {
     setIsAdjust(false);
+  };
+
+  const queryClient = useQueryClient();
+
+  const handleDelete = async () => {
+    try {
+      await deleteFlight(flightId, aircraftId);
+      toast.success("Flight deleted successfully");
+      // Invalidate the query to refresh the flight data
+      queryClient.invalidateQueries({ queryKey: ["flights", aircraftId] });
+      setConfirm(false);
+    } catch (error) {
+      console.error("Error deleting flight:", error);
+      toast.error("Failed to delete flight");
+    }
   };
 
   return (
@@ -143,20 +163,48 @@ const FlightCard: React.FC<FlightCardProps> = ({
             className="hidden md:block scale-[0.8]"
           />
           {/* Adjust button */}
-          <button
-            onClick={() => setIsAdjust(!isAdjust)}
-            disabled={status === "Completed"}
-            className={`bg-[#223A60] rounded-[14px] p-2 text-[#FFFFFF] text-[16px] font-medium w-full md:w-[170px] h-[40px] self-center transform transition-transform duration-200${
-              status === "Completed"
-                ? " cursor-not-allowed "
-                : "hover:bg-[#5681C6] hover:scale-[1.05]"
-            }`}
-          >
-            Adjust
-          </button>
-          <Link to={`/view-full-tickets/${flightId}`} state={data}>
-            Okee{" "}
-          </Link>
+          <div className="flex flex-col gap-2 w-full md:w-auto">
+            <div className="flex flex-col md:flex-row gap-2 w-full">
+              <button
+                onClick={() => setIsAdjust(!isAdjust)}
+                disabled={status === "Completed"}
+                className={`bg-[#223A60] rounded-[14px] p-2 text-[#FFFFFF] text-[16px] font-medium w-full md:w-[170px] h-[40px] self-center transform transition-transform duration-200${
+                  status === "Completed"
+                    ? " cursor-not-allowed "
+                    : "hover:bg-[#5681C6] hover:scale-[1.05]"
+                }`}
+              >
+                Adjust
+              </button>
+              <button
+                className={`bg-[#223A60] rounded-[14px] p-2 text-[#FFFFFF] text-[16px] font-medium w-full md:w-[170px] h-[40px] self-center transform transition-transform duration-200${
+                  status === "Completed"
+                    ? " cursor-not-allowed "
+                    : "hover:bg-[#5681C6] hover:scale-[1.05]"
+                }`}
+              >
+                <Link
+                  to={`/view-full-tickets/${flightId}`}
+                  state={data}
+                  className="w-full h-full flex items-center justify-center"
+                >
+                  View Tickets
+                </Link>
+              </button>
+            </div>
+            {/* Delete button on a new row */}
+            <div className="flex mt-2 justify-between">
+              <button
+                onClick={() => {
+                  setConfirm(true);
+                }}
+                className={`bg-red-600 rounded-[14px] p-2 text-[#FFFFFF] text-[16px] font-medium w-full md:w-[170px] h-[40px] self-center transform transition-transform duration-200
+                  `}
+              >
+                Delete Flight
+              </button>
+            </div>
+          </div>
         </div>
       </div>
       {/* AdjustFlight modal */}
@@ -170,6 +218,18 @@ const FlightCard: React.FC<FlightCardProps> = ({
           }
           handleClose={handleClose}
         />
+      )}
+      {isConfirm && (
+        <div className="fixed inset-0 flex items-center justify-center bg-[#000000] bg-opacity-70 backdrop-blur-[3px] z-50">
+          <div className="bg-white rounded-[20px]">
+            <Confirm
+              title="Okee"
+              message="Delete"
+              close={() => setConfirm(false)}
+              confirm={handleDelete}
+            />
+          </div>
+        </div>
       )}
     </div>
   );

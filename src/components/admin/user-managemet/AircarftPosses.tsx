@@ -5,6 +5,7 @@ import { useQueryClient } from "@tanstack/react-query";
 
 import React from "react";
 import GrantAircraftPosses from "./GrantAircarftPosses";
+import { toast } from "react-toastify";
 
 interface AircraftPossesProps {
   userId: string;
@@ -31,8 +32,10 @@ const AircraftPosses: React.FC<AircraftPossesProps> = ({ userId }) => {
       // Call API to revoke aircraft ownership
       await revokeAircraftOwnership(aircraftId);
       queryClient.invalidateQueries({ queryKey: ["userAircrafts", userId] });
+      toast.success("Aircraft ownership revoked successfully");
     } catch (error) {
       console.error("Failed to revoke aircraft ownership:", error);
+      toast.error("Failed to revoke aircraft ownership");
     }
   };
 

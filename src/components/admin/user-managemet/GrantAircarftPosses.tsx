@@ -2,6 +2,7 @@ import { getAllAircraftsExID, grantAircraftOwnership } from "@/apis/rbac.api";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 import { Aircraft } from "@/types/flight.type";
+import { toast } from "react-toastify";
 
 interface AircraftPossesProps {
   userId: string;
@@ -20,9 +21,11 @@ const GrantAircraftPosses: React.FC<AircraftPossesProps> = ({ userId }) => {
     try {
       await grantAircraftOwnership(userId, aircraftId);
       queryClient.invalidateQueries({ queryKey: ["userAircrafts", userId] });
-      refetch(); // Refetch aircrafts to update list
+      toast.success("Aircraft ownership granted successfully");
+      refetch(); 
     } catch (error) {
       console.error("Failed to grant aircraft ownership:", error);
+      toast.error("Failed to grant aircraft ownership");
     }
   };
 
