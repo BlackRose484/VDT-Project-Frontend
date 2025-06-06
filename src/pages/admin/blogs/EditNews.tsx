@@ -4,7 +4,6 @@ import { getBlogById, updateBlog, uploadBlog } from "@/apis/blogs.api";
 import Loading from "@/components/Loading";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { PATH } from "@/constants/path";
-import { SRC } from "@/constants/src";
 
 interface EditNewsProps {
   title?: string;
@@ -47,7 +46,7 @@ const EditNews: React.FC = () => {
       console.log(data);
 
       setNews(data);
-      setImagePreview(SRC.blog_cover + data.cover_url);
+      setImagePreview(data.cover_url);
     };
 
     if (isEditMode) {

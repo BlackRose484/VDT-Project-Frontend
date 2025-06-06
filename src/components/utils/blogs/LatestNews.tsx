@@ -6,7 +6,6 @@ import { useQuery } from "@tanstack/react-query";
 import { getLatestBlogs } from "@/apis/blogs.api";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { SRC } from "@/constants/src";
 
 const LatestNews = () => {
   const sliderRef = useRef<Slider>(null); // Reference to the Slider component for controlling the carousel
@@ -77,7 +76,7 @@ const LatestNews = () => {
                 key={index}
                 title={blog.title}
                 subtitle={blog.subtitle}
-                cover_url={`${SRC.blog_cover}${blog.cover_url}`}
+                cover_url={`${blog.cover_url}`}
               />
             ))}
           </Slider>

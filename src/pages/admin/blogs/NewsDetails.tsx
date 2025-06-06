@@ -2,7 +2,6 @@ import React, { useContext, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { deleteBlog, getBlogById } from "@/apis/blogs.api";
-import { SRC } from "@/constants/src";
 import { AppContext } from "@/context/app.context";
 
 const NewsDetails: React.FC = () => {
@@ -27,7 +26,7 @@ const NewsDetails: React.FC = () => {
       <div className="flex flex-col gap-16 md:gap-20 px-5 md:px-20 lg:px-40 py-10 md:py-16 lg:py-20 bg-[#E8F3FF] w-full">
         <div className="flex flex-col md:flex-row gap-10 md:gap-16 w-full">
           <img
-            src={`${SRC.blog_cover}${blog?.data.cover_url}`}
+            src={blog?.data.cover_url}
             alt="Cover"
             className="w-full md:w-80 lg:w-96 h-auto"
           />

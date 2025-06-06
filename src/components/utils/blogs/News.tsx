@@ -1,6 +1,5 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { SRC } from "@/constants/src";
 import { BlogCard } from "@/types/blogs.type";
 
 const News: React.FC<BlogCard> = ({ _id, title, subtitle, cover_url }) => {
@@ -10,7 +9,7 @@ const News: React.FC<BlogCard> = ({ _id, title, subtitle, cover_url }) => {
     <div className="flex flex-col md:flex-row md:w-[90%] w-full scale-[0.85] transform transition-transform duration-200 bg-white rounded-[20px] hover:scale-[0.9] md:justify-between">
       {/* Cover image of the news item */}
       <img
-        src={`${SRC.blog_cover}${cover_url}`}
+        src={`${cover_url}`}
         alt="Cover image"
         className="w-[300px] h-[300px] object-cover md:m-3 md:ml-[35px] m-0 rounded-[20px]"
       />
