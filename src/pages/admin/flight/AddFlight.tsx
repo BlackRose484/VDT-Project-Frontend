@@ -121,7 +121,12 @@ const AddFlight: React.FC = () => {
         (name === "scheduled_departure" || name === "scheduled_arrival") &&
         typeof e.target.value === "string"
       ) {
-        setNewFlight((prev) => ({ ...prev, [name]: e.target.value }));
+        const localValue = e.target.value;
+        const date = new Date(localValue);
+        setNewFlight((prev) => ({
+          ...prev,
+          [name]: date.toISOString(),
+        }));
       } else if (
         name === "nums_busi_seat_avail" ||
         name === "nums_eco_seat_avail" ||
