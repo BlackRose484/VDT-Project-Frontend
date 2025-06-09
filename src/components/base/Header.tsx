@@ -161,7 +161,7 @@ const Header = () => {
             <div className="flex flex-row items-center">
               <img
                 src="../image.png"
-                className="w-8 h-6 text-2xl cursor-pointer md:w-12 md:h-8 min-w-8"
+                className="w-8 h-6 text-2xl cursor-pointer md:w-12  md:h-8 min-w-8"
               />
               <div className="text-white text-[16px] font-semibold">
                 {user?.fullname}

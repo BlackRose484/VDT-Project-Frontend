@@ -52,7 +52,7 @@ const Hero = ({ children, nums_booking_changed }: HeroProps) => {
               <img
                 src="./news.png"
                 alt="News"
-                className="w-[50px] h-[50px] rounded-full shadow-lg opacity-[70%] hover:opacity-100"
+                className="w-[60px] h-[40px] rounded-full shadow-lg opacity-[70%] hover:opacity-100"
               />
               <div className="text-[#223A60] text-[16px] font-bold">
                 Update latest information

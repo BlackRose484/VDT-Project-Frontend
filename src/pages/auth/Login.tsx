@@ -58,7 +58,7 @@ const LoginPage: React.FC = () => {
   });
 
   return (
-    <main className="bg-white flex flex-col lg:flex-row min-w-[320px] items-start justify-start mx-4 lg:mx-24 p-4 lg:p-[100px_20px] scale-[1] lg:scale-[0.8]">
+    <main className="bg-white flex flex-col lg:flex-row min-w-[320px] items-start justify-start mx-4 lg:mx-24 p-4 lg:p-[20px_20px] scale-[1] lg:scale-[0.8]">
       <div className="rounded-[14px] shadow-lg flex flex-col lg:flex-row w-full justify-center items-stretch">
         <section className="rounded-t-[14px] lg:rounded-[14px_0_0_14px] bg-[rgba(97,168,250,0.2)] flex flex-col w-full lg:w-1/2 min-h-[600px] lg:min-h-[814px] tracking-[0.96px] justify-between text-[16px] p-4 lg:p-[0_20px]">
           <img
@@ -119,14 +119,14 @@ const LoginPage: React.FC = () => {
             alt="Background"
           />
           <div className="text-black font-bold font-serif z-10 px-4 lg:px-[73px] mt-10 lg:mt-20">
-            <h2 className="text-[36px] lg:text-[90px] tracking-wide lg:tracking-[2.88px]">
+            <h2 className="text-[36px] lg:text-[50px] tracking-wide lg:tracking-[2.88px]">
               Elevate Your Journey
             </h2>
-            <p className="text-[36px] lg:text-[100px] mt-10 lg:mt-[105px]">
+            <p className="text-[36px] lg:text-[60px] mt-10 lg:mt-[105px]">
               Discover the
             </p>
           </div>
-          <p className="text-white font-serif text-[40px] lg:text-[128px] tracking-wide lg:tracking-[7.68px] mt-6 ml-2 z-10">
+          <p className="text-white font-serif text-[40px] lg:text-[70px] lg:px-[40px] tracking-wide lg:tracking-[7.68px] mt-6 ml-2 z-10">
             World
           </p>
         </section>
